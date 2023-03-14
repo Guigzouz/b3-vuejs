@@ -3,10 +3,11 @@ import TodoItem from './TodoItem.vue';
 export default {
     data() {
         return {
-            items: [
-                {label : 'foo', done: false, id: 1}
-            ],
-            newItemName: ""
+            items: [],
+            newItemName: "",
+            editItemName: "",
+            editIndex: -1,
+            id: 0,
         }
     },
 
@@ -14,7 +15,18 @@ export default {
         addTask(){
             this.items.push({
                 label: this.newItemName,
+                done: false,
+                id: this.id++
             });
+        },
+
+        startEdit(id){
+          this.editIndex = id;
+        },
+
+        editTask(index){
+          this.items[index].label = this.editItemName,
+          this.editIndex = -1
         }
     },
 
@@ -46,11 +58,13 @@ export default {
 
         <ul>
           <li style="display: flex; justify-content: space-between;" v-for="(item, index) in items" :key="index">
-            <TodoItem   
-                :label="item.label"
-                :done="item.done"
-                :id="item.id">>
-            </TodoItem>
+            <input type="checkbox" id="scales" name="scales" :checked="done">
+            <label for="scales">{{item.label}}</label>
+            
+            <button @click="startEdit(index)" v-if="editIndex !== index">Edit</button>
+            <input v-else type="text" v-model="editItemName" />
+            <button @click="editTask(index)" v-if="editIndex == index">Save</button>
+
           </li>
         </ul>
       </div>

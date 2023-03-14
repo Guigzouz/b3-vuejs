@@ -7,5 +7,5 @@ import TodoList2 from './components/TodoList2.vue';
 <template>
   
   <TodoList2/>
-  <HelloWorld/>
+
 </template>
