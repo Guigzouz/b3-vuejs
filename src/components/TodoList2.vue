@@ -25,16 +25,14 @@ export default {
           this.items[index].label = this.editItemName,
           this.editIndex = -1
         },
-
         clearAll(){
           this.items = []
         },
-
-        clearDone(){
-          if(this.items.done == true){
-            this.items = []
-          }
-        },
+        // clearDone(){
+        //   if(this.items.done == true){
+        //     this.items = []
+        //   }
+        // },
     },
     components: {
         TodoItem
@@ -72,7 +70,7 @@ export default {
           </li>
         </ul>
         <button @click="clearAll()">Clear All</button>
-        <button @click="clearDone()">Clear Done</button>
+        <!-- <button @click="clearDone()">Clear Done</button> -->
 
       </div>
     
