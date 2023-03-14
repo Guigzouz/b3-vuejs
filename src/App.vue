@@ -1,5 +1,4 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue';
 import TodoList2 from './components/TodoList2.vue';
 
 </script>
@@ -7,5 +6,5 @@ import TodoList2 from './components/TodoList2.vue';
 <template>
   
   <TodoList2/>
-
+  <HelloWorld/>
 </template>

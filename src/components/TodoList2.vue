@@ -10,7 +10,6 @@ export default {
             id: 0,
         }
     },
-
     methods: {
         addTask(){
             this.items.push({
@@ -19,23 +18,28 @@ export default {
                 id: this.id++
             });
         },
-
         startEdit(id){
           this.editIndex = id;
         },
-
         editTask(index){
           this.items[index].label = this.editItemName,
           this.editIndex = -1
-        }
-    },
+        },
 
+        clearAll(){
+          this.items = []
+        },
+
+        clearDone(){
+          if(this.items.done == true){
+            this.items = []
+          }
+        },
+    },
     components: {
         TodoItem
     }
 }
-
-
 </script>
 
 <template>
@@ -67,6 +71,9 @@ export default {
 
           </li>
         </ul>
+        <button @click="clearAll()">Clear All</button>
+        <button @click="clearDone()">Clear Done</button>
+
       </div>
     
     
